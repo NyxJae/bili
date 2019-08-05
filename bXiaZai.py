@@ -28,10 +28,11 @@ def av2url(av):
 
 
 # 实际下载方法(视频地址，本地储存地址，下第几p（缺省则全下）)
-def bXiaZai(videoUrl, loclUrl, p=0):
+def bXiaZai(videoUrl, localUrl, p=0):
     # 获取分p数
     if p is 0:
         try:
+            print('全下')
             text = getHTMLText(videoUrl)
             videoNums = re.findall('"videos":[0-9]*', text)
             videoNum = re.sub('"videos":', '', videoNums[0])
@@ -42,9 +43,10 @@ def bXiaZai(videoUrl, loclUrl, p=0):
             print('没有')
     else:
         # 单下某p
+        print('单下')
         url = videoUrl + '?p={}'.format(p)
         print(url)
-        dow = r'cd /d ' + loclUrl + ' && you-get ' + url
+        dow = r'cd /d ' + localUrl + ' && you-get ' + url
         print(dow)
         os.system(dow)
         return
@@ -52,10 +54,10 @@ def bXiaZai(videoUrl, loclUrl, p=0):
     for j in range(int(videoNum)):
         url = videoUrl + '?p={num}'.format(num=j + 1)
         # 用you-get调用控制台下载
-        dow = r'cd /d ' + loclUrl + ' && you-get ' + url
+        dow = r'cd /d ' + localUrl + ' && you-get ' + url
         print(dow)
         os.system(dow)
-        return
+     return
 
 
 if __name__ == '__main__':
