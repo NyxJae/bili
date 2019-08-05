@@ -1,5 +1,5 @@
 # bili
-自用b站爬虫，很简单，也好好写过注释了  
+自用b站爬虫，很简单，也好好写过注释了，应该能看的懂，但还是写了写使用说明  
 使用了you-get，bs4，re库  
 用的pycharm ，所以you-get是直接从pycharm中安装的，因为是调用pycharm的控制台
 ### bXiaZai.py 提供了 av号转地址，下载视频，两个方法  
