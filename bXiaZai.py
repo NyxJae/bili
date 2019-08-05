@@ -32,7 +32,6 @@ def bXiaZai(videoUrl, localUrl, p=0):
     # 获取分p数
     if p is 0:
         try:
-            print('全下')
             text = getHTMLText(videoUrl)
             videoNums = re.findall('"videos":[0-9]*', text)
             videoNum = re.sub('"videos":', '', videoNums[0])
@@ -43,7 +42,6 @@ def bXiaZai(videoUrl, localUrl, p=0):
             print('没有')
     else:
         # 单下某p
-        print('单下')
         url = videoUrl + '?p={}'.format(p)
         print(url)
         dow = r'cd /d ' + localUrl + ' && you-get ' + url
@@ -57,7 +55,7 @@ def bXiaZai(videoUrl, localUrl, p=0):
         dow = r'cd /d ' + localUrl + ' && you-get ' + url
         print(dow)
         os.system(dow)
-     return
+    return
 
 
 if __name__ == '__main__':
